@@ -8,6 +8,7 @@
 
 #import "StanfordPhotoTitlesTVC.h"
 #import "FlickrFetcher.h"
+#import "ImageViewController.h"
 
 @interface StanfordPhotoTitlesTVC ()
 
@@ -27,18 +28,42 @@
     return numberOfPhotos;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        if (indexPath) {
+            if ([segue.identifier isEqualToString:@"Show Image"]) {
+                if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
+                    NSURL *url = [FlickrFetcher urlForPhoto:[self photosArray][indexPath.row] format:FlickrPhotoFormatLarge];
+                    [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];
+                    if ([segue.destinationViewController isKindOfClass:[ImageViewController class]]) {
+                        ImageViewController *imageVC = (ImageViewController *)segue.destinationViewController;
+                        imageVC.photoId = [self photosArray][indexPath.row][FLICKR_PHOTO_ID];
+                    }
+                }
+            }
+        }
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSLog(@"Stanford Photos %@", self.photos); 
-    
+        
     self.navigationItem.title = self.titleForRow;
+    
+    NSLog(@"Stanford Photos %@", [self photosArray]); 
 }
 
 - (NSString *)titleForRow:(NSUInteger)row
 {
     return [self photoTitles][row]; 
+}
+
+- (NSString *)subtitleForRow:(NSUInteger)row
+{
+    return [self photoDescription][row]; 
 }
 
 - (NSMutableArray *)photoTitles
@@ -48,12 +73,36 @@
         NSString *tags = [dict valueForKey:@"tags"];
         NSRange range = [tags rangeOfString:[self.titleForRow lowercaseString]]; // titleForRow is Photo tag name
         if (range.location != NSNotFound) {
-            NSLog(@"Photo title is %@", [dict valueForKey:@"title"]);
-            //NSLog(@"Photo description is %@", [dict valueForKey:@"description"]);
             [photoTitles addObject:[dict valueForKey:@"title"]];
         }
     }
     return photoTitles;
+}
+
+- (NSMutableArray *)photoDescription
+{
+    NSMutableArray *photoDescription = [[NSMutableArray alloc] init];
+    for (NSDictionary *dict in self.photos) {
+        NSString *tags = [dict valueForKey:@"tags"];
+        NSRange range = [tags rangeOfString:[self.titleForRow lowercaseString]]; // titleForRow is Photo tag name
+        if (range.location != NSNotFound) {
+            [photoDescription addObject:[[dict valueForKey:@"description"]valueForKey:@"_content"]];
+        }
+    }
+    return photoDescription;
+}
+
+- (NSMutableArray *)photosArray // array of dictionaries of photos
+{
+    NSMutableArray *photos = [[NSMutableArray alloc] init];
+    for (NSDictionary *dict in self.photos) {
+        NSString *tags = [dict valueForKey:@"tags"];
+        NSRange range = [tags rangeOfString:[self.titleForRow lowercaseString]]; // titleForRow is Photo tag name
+        if (range.location != NSNotFound) {
+            [photos addObject:dict];
+        }
+    }
+    return photos;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,7 +113,7 @@
     // Configure the cell...
     
     cell.textLabel.text = [self titleForRow:indexPath.row]; 
-    //cell.detailTextLabel.text = [self subtitleForRow:indexPath.row];
+    cell.detailTextLabel.text = [self subtitleForRow:indexPath.row];
     
     return cell;
 }

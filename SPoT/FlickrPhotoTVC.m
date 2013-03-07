@@ -21,6 +21,7 @@
     [self.tableView reloadData]; // when the model changes tableView reloads its data
 }
 
+/*
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([sender isKindOfClass:[UITableViewCell class]]) {
@@ -34,7 +35,7 @@
             }
         }
     }
-}
+}*/
 
 #pragma mark - Table view data source
 

@@ -21,6 +21,9 @@
 		5703E9DF16DE1DE800A8D0A6 /* FlickrPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5703E9DE16DE1DE800A8D0A6 /* FlickrPhotoTVC.m */; };
 		5703E9E216DE1E5700A8D0A6 /* StanfordPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5703E9E116DE1E5700A8D0A6 /* StanfordPhotosTVC.m */; };
 		5703E9F116E22F2400A8D0A6 /* StanfordPhotoTitlesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5703E9F016E22F2400A8D0A6 /* StanfordPhotoTitlesTVC.m */; };
+		57F2AE7F16E2E88D009D99A4 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F2AE7E16E2E88D009D99A4 /* ImageViewController.m */; };
+		57F2AE8B16E6D7FF009D99A4 /* RecentPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F2AE8A16E6D7FF009D99A4 /* RecentPhotos.m */; };
+		57F2AE8E16E814B2009D99A4 /* RecentPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F2AE8D16E814B2009D99A4 /* RecentPhotosTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,12 @@
 		5703E9E116DE1E5700A8D0A6 /* StanfordPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StanfordPhotosTVC.m; sourceTree = "<group>"; };
 		5703E9EF16E22F2400A8D0A6 /* StanfordPhotoTitlesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordPhotoTitlesTVC.h; sourceTree = "<group>"; };
 		5703E9F016E22F2400A8D0A6 /* StanfordPhotoTitlesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StanfordPhotoTitlesTVC.m; sourceTree = "<group>"; };
+		57F2AE7D16E2E88D009D99A4 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		57F2AE7E16E2E88D009D99A4 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		57F2AE8916E6D7FF009D99A4 /* RecentPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotos.h; sourceTree = "<group>"; };
+		57F2AE8A16E6D7FF009D99A4 /* RecentPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotos.m; sourceTree = "<group>"; };
+		57F2AE8C16E814B2009D99A4 /* RecentPhotosTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosTVC.h; sourceTree = "<group>"; };
+		57F2AE8D16E814B2009D99A4 /* RecentPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +109,12 @@
 				5703E9E116DE1E5700A8D0A6 /* StanfordPhotosTVC.m */,
 				5703E9EF16E22F2400A8D0A6 /* StanfordPhotoTitlesTVC.h */,
 				5703E9F016E22F2400A8D0A6 /* StanfordPhotoTitlesTVC.m */,
+				57F2AE7D16E2E88D009D99A4 /* ImageViewController.h */,
+				57F2AE7E16E2E88D009D99A4 /* ImageViewController.m */,
+				57F2AE8C16E814B2009D99A4 /* RecentPhotosTVC.h */,
+				57F2AE8D16E814B2009D99A4 /* RecentPhotosTVC.m */,
+				57F2AE8916E6D7FF009D99A4 /* RecentPhotos.h */,
+				57F2AE8A16E6D7FF009D99A4 /* RecentPhotos.m */,
 				5703E9D816DE1D4800A8D0A6 /* FlickrFetcher */,
 				5703E9B316DE1AC700A8D0A6 /* Supporting Files */,
 			);
@@ -204,6 +219,9 @@
 				5703E9DF16DE1DE800A8D0A6 /* FlickrPhotoTVC.m in Sources */,
 				5703E9E216DE1E5700A8D0A6 /* StanfordPhotosTVC.m in Sources */,
 				5703E9F116E22F2400A8D0A6 /* StanfordPhotoTitlesTVC.m in Sources */,
+				57F2AE7F16E2E88D009D99A4 /* ImageViewController.m in Sources */,
+				57F2AE8B16E6D7FF009D99A4 /* RecentPhotos.m in Sources */,
+				57F2AE8E16E814B2009D99A4 /* RecentPhotosTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +338,7 @@
 				5703E9CE16DE1AC700A8D0A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

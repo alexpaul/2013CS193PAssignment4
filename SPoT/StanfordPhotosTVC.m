@@ -21,13 +21,19 @@
     return [[self uniqueTagsArray] count];
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFeatured tag:0];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.photos = [FlickrFetcher stanfordPhotos];
 
-    self.navigationItem.title = @"SPoT";
+    self.navigationItem.title = @"SPoT";    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
