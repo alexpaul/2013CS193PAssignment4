@@ -80,20 +80,9 @@
             self.imageView.image = image;
             self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     
-#warning duplicate check does not work
-            //  Make sure to check if photoId already exist in recent photos
-            //  If it does not exist add the photo id to recents
-            if ([[RecentPhotos recentPhotos] count] != 0) {
-                for (RecentPhotos *recents in [RecentPhotos recentPhotos]) {
-                    if (![[RecentPhotos recentPhotos] containsObject:self.photoId]) { //  don't add duplicates
-                        self.recentPhoto.photoId = self.photoId;
-                    }
-                }
-                for (RecentPhotos *recents in [RecentPhotos recentPhotos]) {
-                }
-            }else{
-                self.recentPhoto.photoId = self.photoId;
-            }
+            // Add photo id to recent photos
+            // RecentPhotos class handles non duplicate entries
+            self.recentPhoto.photoId = self.photoId; 
         }
     }
 }

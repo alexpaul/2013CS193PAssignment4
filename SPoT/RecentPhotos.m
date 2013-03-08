@@ -27,8 +27,18 @@
 
 - (void)setPhotoId:(NSString *)photoId
 {
-    _photoId = photoId;
-    [self synchronize]; 
+    BOOL duplicate = NO; 
+    for (RecentPhotos *recents in [RecentPhotos recentPhotos]) {
+        if ([photoId isEqualToString:recents.photoId]) { // Checks for duplicates
+            duplicate = YES; 
+        }
+    }
+    
+    //  Don't add duplicates 
+    if (duplicate == NO) {
+        _photoId = photoId;
+        [self synchronize];
+    }
 }
 
 - (id)init

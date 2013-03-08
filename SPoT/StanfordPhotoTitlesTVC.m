@@ -53,7 +53,7 @@
         
     self.navigationItem.title = self.titleForRow;
     
-    NSLog(@"Stanford Photos %@", [self photosArray]); 
+    //NSLog(@"Stanford Photos %@", [self photosArray]);
 }
 
 - (NSString *)titleForRow:(NSUInteger)row

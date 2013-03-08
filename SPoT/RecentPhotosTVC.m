@@ -83,9 +83,7 @@
 {
     [super viewDidLoad];
             
-    self.navigationItem.title = @"Recents";
-        
-    NSLog(@"There are %d recent photos", [[self recentPhotosUsingPhotoId] count]);
+    self.navigationItem.title = @"Recents";        
 }
 
 - (NSArray *)recentPhotosUsingPhotoId
